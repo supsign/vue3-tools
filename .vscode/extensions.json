@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "usernamehw.errorlens",
+    "vue.vscode-typescript-vue-plugin",
+    "vue.volar",
+    "bradlc.vscode-tailwindcss"
+  ]
+}
