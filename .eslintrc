@@ -39,6 +39,7 @@
 			"error",
 			"never"
 		],
+		"space-infix-ops": "error",
 		"vue/define-props-declaration": [
 			"error",
 			"type-based"
