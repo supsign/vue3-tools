@@ -1,8 +1,8 @@
 import { ref, type Ref } from 'vue';
 
-export function useList<T = unknown>(data: T[]): UseListReturn {
+export function useList<T>(data: T[]): UseListReturn {
 
-  const list: Ref<T[]> = ref(data);
+  const list: Ref<T[]> = ref(data) as Ref<T[]>;
 
   const selected: Ref<T|undefined> = ref();
   const show = ref(false);
@@ -12,7 +12,8 @@ export function useList<T = unknown>(data: T[]): UseListReturn {
     show.value = false;
   }
 
-  function update(index: number, value: T): void {
+  function update(index: number, value: unknown): void {
+    //@ts-expect-error: find out
     list.value[index] = value;
     show.value = false;
     selected.value = undefined;
@@ -39,7 +40,6 @@ export function useList<T = unknown>(data: T[]): UseListReturn {
   function close() {
     show.value = false;
   }
-
   return { list, selected, show, add, update, remove, select, deselect, open, close };
 }
 

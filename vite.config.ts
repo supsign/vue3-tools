@@ -1,12 +1,10 @@
 import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
-import Vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-  test: {},
-  // If our .vue files have a style, it will be compiled as a single `.css` file under /dist.
-  plugins: [Vue({ style: { filename: 'style.css' } })],
-
+  test: {
+    globals: true
+  },
   build: {
     // Output compiled files to /dist.
     outDir: './dist',
@@ -14,10 +12,10 @@ export default defineConfig({
       // Set the entry point (file that contains our components exported).
       entry: resolve(__dirname, 'src/index.ts'),
       // Name of the library.
-      name: 'my-component-library',
+      name: 'vue3-tools',
       // We are building for CJS and ESM, use a function to rename automatically files.
       // Example: my-component-library.esm.js
-      fileName: (format) => `${'my-component-library'}.${format}.js`
+      fileName: 'vue3-tools'
     },
     rollupOptions: {
       // Vue is provided by the parent project, don't compile Vue source-code inside our library.

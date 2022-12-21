@@ -1,6 +1,14 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { useList } from './index';
-import data from './data.json';
+
+const data = [
+  { 'id': 1, 'name': 'Apple' },
+  { 'id': 2,'name': 'Banana' },
+  { 'id': 3,'name': 'Coconut' },
+  { 'id': 4,'name': 'Kiwi' },
+  { 'id': 5,'name': 'Orange' }
+];
+
 
 describe('useList', () => {
 

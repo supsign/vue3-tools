@@ -1,15 +1,22 @@
 {
     "name": "@supsign/vue3-tools",
-    "version": "0.0.2",
+    "version": "0.0.0",
+    "type": "module",
     "files": [
         "dist"
     ],
     "engines": {
         "node": ">=14.18"
     },
-    "main": "dist/vue3-tools.umd.js",
-    "module": "dist/vue3-tools.es.js",
+    "main": "./dist/my-lib.umd.cjs",
+    "module": "./dist/my-lib.js",
     "types": "dist/types/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/my-lib.js",
+            "require": "./dist/my-lib.umd.cjs"
+        }
+    },
     "scripts": {
         "dev": "vite",
         "build": "vite build && npm run build:types",
@@ -29,7 +36,6 @@
         "url": "https://github.com/supsign/vue3-tools/issues"
     },
     "homepage": "https://github.com/supsign/vue3-tools#readme",
-    "type": "module",
     "devDependencies": {
         "@babel/types": "^7.20.5",
         "@types/node": "^18.11.9",
