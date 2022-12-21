@@ -1,6 +1,6 @@
 import { ref, type Ref } from 'vue';
 
-export function useList<T>(data: T[]): UseListReturn {
+export function useList<T>(data: T[]) {
 
   const list: Ref<T[]> = ref(data) as Ref<T[]>;
 
@@ -41,19 +41,4 @@ export function useList<T>(data: T[]): UseListReturn {
     show.value = false;
   }
   return { list, selected, show, add, update, remove, select, deselect, open, close };
-}
-
-type T = unknown
-
-export interface UseListReturn {
-  list: Ref<unknown[]>
-  selected: Ref<unknown|undefined>
-  show: Ref<boolean>
-  add: (value: T) => void
-	update: (index: number, value: T) => void
-	remove: (index: number) => void
-	select: (index: number) => void
-	deselect: () => void
-	open: () => void
-	close: () => void
 }
