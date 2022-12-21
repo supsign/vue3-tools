@@ -1,6 +1,6 @@
 {
     "name": "@supsign/vue3-tools",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "type": "module",
     "files": [
         "dist"
@@ -8,13 +8,13 @@
     "engines": {
         "node": ">=14.18"
     },
-    "main": "./dist/my-lib.umd.cjs",
-    "module": "./dist/my-lib.js",
+    "main": "./dist/vue3-tools.umd.cjs",
+    "module": "./dist/vue3-tools.js",
     "types": "dist/types/index.d.ts",
     "exports": {
         ".": {
-            "import": "./dist/my-lib.js",
-            "require": "./dist/my-lib.umd.cjs"
+            "import": "./dist/vue3-tools.js",
+            "require": "./dist/vue3-tools.umd.cjs"
         }
     },
     "scripts": {
