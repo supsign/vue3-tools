@@ -1,19 +1,51 @@
 {
+	"root": true,
 	"env": {
 		"browser": true,
 		"node": true,
-		"es2021": true
+		"es2022": true
 	},
 	"extends": [
 		"eslint:recommended",
-		"plugin:vue/vue3-essential",
+		"plugin:vue/vue3-recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
-	"overrides": [],
+	"overrides": [
+		{
+			"files": [
+				"*.vue"
+			],
+			"rules": {
+				"indent": "off"
+			}
+		},
+		{
+			"files": [
+				"*.json"
+			],
+			"rules": {
+				"indent": [
+					"error",
+					"tab"
+				],
+				"quotes": [
+					"error",
+					"double"
+				],
+				"semi": [
+					"error",
+					"never"
+				]
+			}
+		}
+	],
 	"parser": "vue-eslint-parser",
 	"parserOptions": {
-		"parser": "@typescript-eslint/parser",
-		"ecmaVersion": "latest",
+		"parser": {
+			"js": "espree",
+			"ts": "@typescript-eslint/parser",
+			"<template>": "espree"
+		},
 		"sourceType": "module"
 	},
 	"plugins": [
@@ -21,15 +53,24 @@
 		"@typescript-eslint"
 	],
 	"rules": {
+		"@typescript-eslint/consistent-type-definitions": "off",
+		"@typescript-eslint/prefer-function-type": "off",
+		"arrow-parens": [
+			"error",
+			"always"
+		],
+		"comma-dangle": [
+			"error",
+			"never"
+		],
 		"key-spacing": "error",
-		"arrow-spacing": 2,
 		"object-curly-spacing": [
-			2,
+			"error",
 			"always"
 		],
 		"indent": [
-			"error",
-			"tab"
+			"warn",
+			2
 		],
 		"quotes": [
 			"error",
@@ -37,7 +78,7 @@
 		],
 		"semi": [
 			"error",
-			"never"
+			"always"
 		],
 		"space-infix-ops": "error",
 		"vue/define-props-declaration": [
@@ -47,6 +88,11 @@
 		"vue/define-emits-declaration": [
 			"error",
 			"type-based"
+		],
+		"vue/require-default-prop": "off",
+		"vue/script-indent": [
+			"warn",
+			2
 		],
 		"vue/v-for-delimiter-style": [
 			"error",

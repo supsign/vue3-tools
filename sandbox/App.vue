@@ -16,8 +16,9 @@
   </main>
 </template>
 
-<script setup lang="ts">
-import Input from "../src/Input.vue";
+<script lang="ts" setup>
+import Input from '../src/Input.vue';
+import { useList } from '../packages/composables/useList';
 </script>
 
 <style lang="scss" scoped></style>
