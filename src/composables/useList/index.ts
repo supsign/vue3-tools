@@ -1,20 +1,25 @@
-import { reactive, ref, type Ref, unref  } from 'vue';
+import { ref, unref, type Ref  } from 'vue';
 
 export function useList<T = any>(data: T[]) {
 
-  const list: T[] = data;
+  const list: Ref<T[]> = ref([])
+
+  list.value = unref(data)
+
   const selected: Ref<T|undefined> = ref();
   const selectedIndex: Ref<number|undefined> = ref();
   const show = ref(false);
 
   function add(value: T): void {
-    list.push(value);
+    list.value.push(value);
     show.value = false;
   }
 
-  function update(value: T): void {
-    if(selectedIndex.value) {
-      list[selectedIndex.value] = value;
+  function update(value: T, index?: number): void {
+    if(index) {
+      list.value[index] = value;
+    } else if(selectedIndex.value) {
+      list.value[selectedIndex.value] = value;
       selectedIndex.value = undefined;
     }
     show.value = false;
@@ -22,11 +27,11 @@ export function useList<T = any>(data: T[]) {
   }
 
   function remove(index: number): void {
-    list.splice(index, 1);
+    list.value.splice(index, 1);
   }
 
   function select(index: number): void {
-    selected.value = list[index];
+    selected.value = list.value[index];
     selectedIndex.value = index;
     show.value = true;
   }

@@ -27,17 +27,18 @@ describe('useList', () => {
   });
 
   it('update item in list', () => {
-    const { open, show, update, list } = useList(data);
+    const { select, show, update, list } = useList(data);
     const item = { id: 6, name: 'Vinnegar Cucumbers' };
     expect(show.value).toBe(false);
-    open();
+    select(list.value.length - 1);
     expect(show.value).toBe(true);
     expect(list.value.length).toEqual(6);
     expect(list.value[list.value.length - 1]).not.toEqual(item);
-    update(list.value.length - 1, item);
+    update(item);
     expect(show.value).toBe(false);
     expect(list.value.length).toEqual(6);
     expect(list.value[list.value.length - 1]).toEqual(item);
+
   });
 
   it('remove item from list', () => {
