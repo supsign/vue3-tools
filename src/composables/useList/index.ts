@@ -2,9 +2,9 @@ import { ref, unref, type Ref  } from 'vue';
 
 export function useList<T = any>(data: T[]) {
 
-  const list: Ref<T[]> = ref([])
+  const list: Ref<T[]> = ref([]);
 
-  list.value = unref(data)
+  list.value = unref(data);
 
   const selected: Ref<T|undefined> = ref();
   const selectedIndex: Ref<number|undefined> = ref();
