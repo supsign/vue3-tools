@@ -1,5 +1,10 @@
 // tsconfig.build-types.json
 {
+  // Wie in @vue/tsconfig, das die App-Konfiguration nutzt: fremde .d.ts nicht
+  // pruefen. Sonst bricht TypeScript 4.9 an aktuellen @types/node ab.
+  "compilerOptions": {
+    "skipLibCheck": true
+  },
   "include": [
     "src/**/*"
   ],
@@ -7,6 +12,7 @@
     "node_modules",
     "**/*.cy.ts",
     "**/*.spec.ts",
+    "**/*.test.ts",
     "**/__tests__/**/*"
   ]
 }
